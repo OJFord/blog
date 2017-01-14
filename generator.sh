@@ -34,7 +34,7 @@ for src_file in $src_files; do
 	}
 	EOF
 
-    title="$(pandoc --template="$metadata_tpl" | jq .title)"
+    title="$(pandoc --template="$metadata_tpl" "$src_file" | jq .title)"
     cat <<-EOF >> vars.rb
 	    {
 	        'title' => '${title}',
