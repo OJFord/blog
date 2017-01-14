@@ -32,19 +32,6 @@ data "external" "post_generator" {
   program = ["${path.module}/generator.sh"]
 }
 
-data "null_data_source" "posts" {
-  inputs = {
-    fnames = "\"${join("\", \"", split(" ", data.external.post_generator.result.fnames))}\""
-  }
-}
-
-resource "aws_s3_bucket_object" "post" {
-  count  = "${length(data.null_data_source.post.inputs.fnames)}"
-  bucket = "${aws_s3_bucket.blog.bucket}"
-  key    = "post/${element(data.null_data_source.post.inputs.fnames, count.index)}"
-  source = "${path.module}/post/${element(data.null_data_source.post.inputs.fnames, count.index)}"
-}
-
 resource "cloudflare_record" "blog" {
   domain  = "${var.domain}"
   name    = "${var.subdomain}"
