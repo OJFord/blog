@@ -1,7 +1,16 @@
 resource "aws_s3_bucket" "blog" {
-  bucket  = "${var.s3_bucket}"
-  acl     = "public-read"
-  website = {}
+  bucket = "${var.s3_bucket}"
+  acl    = "public-read"
+
+  website = {
+    index_document = "index.html"
+  }
+}
+
+resource "aws_s3_bucket_object" "index" {
+  bucket = "${aws_s3_bucket.blog.bucket}"
+  key    = "${aws_s3_bucket.blog.website.0.index_document}"
+  source = "${path.module}/${aws_s3_bucket.blog.website.0.index_document}"
 }
 
 resource "cloudflare_record" "blog" {
