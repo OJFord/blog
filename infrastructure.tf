@@ -1,5 +1,5 @@
 resource "aws_s3_bucket" "blog" {
-  bucket = "${var.s3_bucket}"
+  bucket = "${var.subdomain}.${var.domain}"
   acl    = "public-read"
 
   policy = <<EOF
@@ -11,7 +11,7 @@ resource "aws_s3_bucket" "blog" {
             "Effect":"Allow",
             "Principal": "*",
             "Action":["s3:GetObject"],
-            "Resource":["arn:aws:s3:::${var.s3_bucket}/*"]
+            "Resource":["arn:aws:s3:::${var.subdomain}.${var.domain}/*"]
         }
     ]
 }
