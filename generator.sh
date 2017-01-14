@@ -29,6 +29,7 @@ for src_file in $src_files; do
 	    bucket       = "\${aws_s3_bucket.blog.bucket}"
 	    key          = "post/$gen_fname"
 	    source       = "\${path.module}/$gen_file"
+	    etag         = "\${md5(file("\${path.module}/$gen_file"))}"
 	    content_type = "text/html"
 	}
 	EOF
