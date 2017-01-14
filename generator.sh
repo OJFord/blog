@@ -16,7 +16,9 @@ for src_file in $src_files; do
     gen_fname="${src_fname%.md}.html"
     gen_file="posts/generated/$gen_fname"
 
-    pandoc --to=html5 --katex --standalone "$src_file" --output="$gen_file"
+    pandoc --to=html5 --katex --standalone --template=template.html \
+        "$src_file" \
+        --output="$gen_file"
 
     cat <<- EOF >> posts.tf
 	resource "aws_s3_bucket_object" "post_${src_fname%.md}" {
