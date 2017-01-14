@@ -1,5 +1,5 @@
 ---
-title: 'Test'
+title: 'Test post'
 date: 14 January 2017
 tags: [test, experiment]
 

@@ -10,6 +10,10 @@ mkdir -p posts/generated
 src_files=$(find posts -maxdepth 1 -type f)
 
 truncate -s 0 posts.tf
+echo "@posts = [" > vars.rb
+
+metadata_tpl="/tmp/metadata.pandoc-template"
+echo "\$meta-json\$" > "$metadata_tpl"
 
 for src_file in $src_files; do
     src_fname="${src_file#posts/}"
@@ -28,7 +32,18 @@ for src_file in $src_files; do
 	    content_type = "text/html"
 	}
 	EOF
+
+    title="$(pandoc --template="$metadata_tpl" | jq .title)"
+    cat <<-EOF >> vars.rb
+	    {
+	        'title' => '${title}',
+	        'fname' => '${gen_fname}',
+	    },
+	EOF
 done
+
+echo "]" >> vars.rb
+erb -r vars.rb index.html.erb > index.html
 
 # Output JSON (Terraform requirement)
 echo "{}"
