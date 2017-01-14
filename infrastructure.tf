@@ -23,9 +23,10 @@ EOF
 }
 
 resource "aws_s3_bucket_object" "index" {
-  bucket = "${aws_s3_bucket.blog.bucket}"
-  key    = "${aws_s3_bucket.blog.website.0.index_document}"
-  source = "${path.module}/${aws_s3_bucket.blog.website.0.index_document}"
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "${aws_s3_bucket.blog.website.0.index_document}"
+  source       = "${path.module}/${aws_s3_bucket.blog.website.0.index_document}"
+  content_type = "text/html"
 }
 
 data "external" "post_generator" {

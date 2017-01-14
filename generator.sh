@@ -22,9 +22,10 @@ for src_file in $src_files; do
 
     cat <<- EOF >> posts.tf
 	resource "aws_s3_bucket_object" "post_${src_fname%.md}" {
-	    bucket = "\${aws_s3_bucket.blog.bucket}"
-	    key    = "post/$gen_fname"
-	    source = "\${path.module}/$gen_file"
+	    bucket       = "\${aws_s3_bucket.blog.bucket}"
+	    key          = "post/$gen_fname"
+	    source       = "\${path.module}/$gen_file"
+	    content_type = "text/html"
 	}
 	EOF
 done
