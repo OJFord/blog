@@ -43,7 +43,7 @@ for src_file in $src_files; do
 done
 
 echo "]" >> vars.rb
-erb -r vars.rb index.html.erb > index.html
+erb -r ./vars.rb index.html.erb > index.html
 
 # Output JSON (Terraform requirement)
 echo "{}"
