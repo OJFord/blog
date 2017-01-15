@@ -7,6 +7,23 @@
         <title>OJFord's blog</title>
 
         <link rel="stylesheet" href="/index.css">
+
+        <script type="text/javascript">
+            window.onload = function(){
+                var url = (window.location != window.parent.location)
+                    ? document.referrer
+                    : document.location.href;
+
+                var post_fname = url.substr(url.indexOf("/post/"));
+                var post;
+                do {
+                    post = document.querySelector("div.post");
+                    matched = post.querySelector("div h1 a[href=\"" + post_fname + "\"]");
+                } while (matched === null);
+
+                post.style.display = "none";
+            }
+        </script>
     </head>
     <body>
     <% for @post in @posts %>
