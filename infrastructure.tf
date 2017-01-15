@@ -46,6 +46,14 @@ resource "aws_s3_bucket_object" "common_css" {
   content_type = "text/css"
 }
 
+resource "aws_s3_bucket_object" "index_css" {
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "index.css"
+  source       = "${path.module}/assets/index.css"
+  etag         = "${md5(file("${path.module}/assets/index.css"))}"
+  content_type = "text/css"
+}
+
 resource "aws_s3_bucket_object" "post_css" {
   bucket       = "${aws_s3_bucket.blog.bucket}"
   key          = "post.css"

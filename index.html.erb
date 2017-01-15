@@ -8,15 +8,25 @@
         <link rel="stylesheet" href="/common.css">
     </head>
     <body>
-    <% for @post in @posts %>
-        <div class="post">
-            <h1>
-                <a href="/post/<%= @post['fname'] %>">
-                    <%= @post['title'] %>
-                </a>
-            </h1>
-        </div>
-    <% end %>
+        <table cellspacing="0">
+            <tbody>
+            <% for @post in @posts %>
+                <tr class="post">
+                    <td class="title">
+                        <h1>
+                            <a href="/post/<%= @post['fname'] %>">
+                                <%= @post['title'] %>
+                            </a>
+                        </h1>
+                    </td>
+
+                    <td class="date">
+                        <%= @post['date'] %>
+                    </td>
+                </tr>
+            <% end %>
+            </tbody>
+        </table>
     </body>
 </html>
 
