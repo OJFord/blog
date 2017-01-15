@@ -1,5 +1,35 @@
+body {
+    margin: 0;
+}
+
 h1 {
     font-family: open sans, sans-serif;
     font-size: 2.3em;
     line-height: 1.2em;
+}
+
+.post {
+    display: block;
+    margin: 10px 5%;
+    padding: .1px 10px 15px 10px;
+
+    background-color: whitesmoke;
+
+    box-shadow: inset 0 0 7px #ccc;
+    -moz-box-shadow: inset 0 0 7px #ccc;
+    -webkit-box-shadow: inset 0 0 7px #ccc
+}
+
+.post h1 {
+    margin-top: .4em;
+    margin-bottom: 0;
+}
+
+.post .date {
+    margin: 0;
+    float: right;
+
+    font-family: open sans, sans-serif;
+    line-height: 0;
+    font-style: italic;
 }

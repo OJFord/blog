@@ -59,7 +59,7 @@
         </div>
 
         <div id="content">
-            <div id="post">
+            <div class="post">
                 $for(include-before)$
                 $include-before$
                 $endfor$
@@ -70,11 +70,12 @@
                     <p class="subtitle">$subtitle$</p>
                     $endif$
 
+                    <hr>
+
                     $if(date)$
                     <p class="date">$date$</p>
                     $endif$
                 </header>
-                <hr>
 
                 $if(toc)$
                 <nav id="$idprefix$TOC">
@@ -90,7 +91,6 @@ $body$
             </div>
 
             <div id="index">
-                <span>Other words of mine...</span>
                 <iframe src="/index.html" frameborder="0" title="Index">
                 </iframe>
             </div>
