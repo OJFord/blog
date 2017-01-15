@@ -4,7 +4,6 @@
         <meta charset="utf-8">
         <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
 
-        <style type="text/css">code{white-space: pre;}</style>
         $if(quotes)$
         <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
         $endif$
@@ -14,6 +13,8 @@
         $for(css)$
         <link rel="stylesheet" href="$css$">
         $endfor$
+        <link rel="stylesheet" href="/post.css">
+
         $if(math)$$math$$endif$
         <!--[if lt IE 9]>
         <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
@@ -23,37 +24,48 @@
         $endfor$
     </head>
     <body>
-        $for(include-before)$
-        $include-before$
-        $endfor$
+        <div id="sidebar">
+        </div>
 
-        $if(title)$
-        <header>
-            <h1 class="title">$title$</h1>
-            $if(subtitle)$
-            <p class="subtitle">$subtitle$</p>
-            $endif$
+        <div id="content">
+            <div id="post">
+                $for(include-before)$
+                $include-before$
+                $endfor$
 
-            $for(author)$
-            <p class="author">$author$</p>
-            $endfor$
+                $if(title)$
+                <header>
+                    <h1 class="title">$title$</h1>
+                    $if(subtitle)$
+                    <p class="subtitle">$subtitle$</p>
+                    $endif$
 
-            $if(date)$
-            <p class="date">$date$</p>
-            $endif$
-        </header>
-        $endif$
+                    $for(author)$
+                    <p class="author">$author$</p>
+                    $endfor$
 
-        $if(toc)$
-        <nav id="$idprefix$TOC">
-            $toc$
-        </nav>
-        $endif$
+                    $if(date)$
+                    <p class="date">$date$</p>
+                    $endif$
+                </header>
+                $endif$
 
-        $body$
+                $if(toc)$
+                <nav id="$idprefix$TOC">
+                    $toc$
+                </nav>
+                $endif$
 
-        $for(include-after)$
-        $include-after$
-        $endfor$
+                $body$
+
+                $for(include-after)$
+                $include-after$
+                $endfor$
+            </div>
+
+            <iframe id="index" src="/index.html" frameborder="0" title="Index">
+            </iframe>
+
+        </div>
     </body>
 </html>

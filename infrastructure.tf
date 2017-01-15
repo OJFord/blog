@@ -38,6 +38,14 @@ resource "aws_s3_bucket_object" "index" {
   content_type = "text/html"
 }
 
+resource "aws_s3_bucket_object" "post_css" {
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "post.css"
+  source       = "${path.module}/post.css"
+  etag         = "${md5(file("${path.module}/post.css"))}"
+  content_type = "text/css"
+}
+
 data "external" "post_generator" {
   program = ["${path.module}/generator.sh"]
 }
