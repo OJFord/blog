@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 # Execute script from its own directory
 cd "$(cd "$(dirname "$0")"; pwd -P)" || exit 1
@@ -34,10 +34,11 @@ for src_file in $src_files; do
 	}
 	EOF
 
-    title="$(pandoc --template="$metadata_tpl" "$src_file" | jq --raw-output .title)"
+    mapfile -t metadata <<< "$(pandoc --template="$metadata_tpl" "$src_file" | jq --raw-output .title,.date)"
     cat <<-EOF >> vars.rb
 	    {
-	        'title' => '$title',
+	        'title' => '${metadata[0]}',
+	        'date' => '${metadata[1]}',
 	        'fname' => '$gen_fname',
 	    },
 	EOF
