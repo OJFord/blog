@@ -1,9 +1,31 @@
+@import url("/common.css");
+@import url("//fonts.googleapis.com/css?family=Anonymous+Pro:400");
+@import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
+
 body {
     background-image: url("/noisy-efefef.png");
 }
 
+p {
+    text-align: justify;
+}
+
 code {
+    font-family: 'Anonymous Pro', monospace;
+    line-height: 1.2em;
     white-space: pre;
+}
+
+span.math.display {
+    display: block;
+    text-align: center;
+}
+
+pre.sourceCode {
+    margin: 0 50px;
+    padding: 5px;
+
+    background: gainsboro;
 }
 
 #sidebar {
