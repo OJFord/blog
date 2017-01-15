@@ -38,14 +38,37 @@ resource "aws_s3_bucket_object" "index" {
   content_type = "text/html"
 }
 
-resource "aws_s3_bucket_object" "post_css" {
+resource "aws_s3_bucket_object" "common_css" {
   bucket       = "${aws_s3_bucket.blog.bucket}"
-  key          = "post.css"
-  source       = "${path.module}/post.css"
-  etag         = "${md5(file("${path.module}/post.css"))}"
+  key          = "common.css"
+  source       = "${path.module}/assets/common.css"
+  etag         = "${md5(file("${path.module}/assets/common.css"))}"
   content_type = "text/css"
 }
 
+resource "aws_s3_bucket_object" "post_css" {
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "post.css"
+  source       = "${path.module}/assets/post.css"
+  etag         = "${md5(file("${path.module}/assets/post.css"))}"
+  content_type = "text/css"
+}
+
+resource "aws_s3_bucket_object" "headshot" {
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "headshot.jpg"
+  source       = "${path.module}/assets/headshot.jpg"
+  etag         = "${md5(file("${path.module}/assets/headshot.jpg"))}"
+  content_type = "image/jpeg"
+}
+
+resource "aws_s3_bucket_object" "bg_image" {
+  bucket       = "${aws_s3_bucket.blog.bucket}"
+  key          = "noisy-efefef.png"
+  source       = "${path.module}/assets/noisy-efefef.png"
+  etag         = "${md5(file("${path.module}/assets/noisy-efefef.png"))}"
+  content_type = "image/png"
+}
 data "external" "post_generator" {
   program = ["${path.module}/generator.sh"]
 }

@@ -1,0 +1,68 @@
+body {
+    background-image: url("/noisy-efefef.png");
+}
+
+code {
+    white-space: pre;
+}
+
+#sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 300px;
+    height: 100%;
+
+    background-color: teal;
+    box-shadow: 0 0 20px teal;
+}
+
+#sidebar img {
+    width: 50%;
+    border-radius: 50%;
+    margin: 10px 25% 0;
+}
+
+#content {
+    position: relative;
+    left: 300px;
+    width: calc(100% - 300px);
+}
+
+#post {
+    display: block;
+    margin: 10px 5%;
+    padding: .1px 10px;
+
+    background-color: whitesmoke;
+
+    box-shadow: inset 0 0 7px #ccc;
+    -moz-box-shadow: inset 0 0 7px #ccc;
+    -webkit-box-shadow: inset 0 0 7px #ccc
+}
+
+#post header h1 {
+    margin-top: .4em;
+    margin-bottom: 0;
+}
+
+#post header .date {
+    margin: 0;
+    float: right;
+
+    font-family: open sans, sans-serif;
+    line-height: 1.5em;
+    font-style: italic;
+}
+
+#post header + hr {
+    clear: both;
+
+    height: 1px;
+    border: 0;
+    background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+}
+
+iframe#index {
+    width: 100%;
+}

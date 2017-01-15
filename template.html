@@ -13,6 +13,7 @@
         $for(css)$
         <link rel="stylesheet" href="$css$">
         $endfor$
+        <link rel="stylesheet" href="/common.css">
         <link rel="stylesheet" href="/post.css">
 
         $if(math)$$math$$endif$
@@ -25,6 +26,7 @@
     </head>
     <body>
         <div id="sidebar">
+            <img id="headshot" src="/headshot.jpg">
         </div>
 
         <div id="content">
@@ -49,6 +51,7 @@
                     $endif$
                 </header>
                 $endif$
+                <hr>
 
                 $if(toc)$
                 <nav id="$idprefix$TOC">
