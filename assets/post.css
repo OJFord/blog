@@ -39,6 +39,14 @@ pre.sourceCode {
     box-shadow: 0 0 20px teal;
 }
 
+#sidebar #name {
+    font-family: cursive, sans-serif;
+    font-size: 2em;
+    font-style: italic;
+    text-align: center;
+    color: darkturquoise;
+}
+
 #sidebar #headshot {
     width: 50%;
     border-radius: 50%;
@@ -92,6 +100,19 @@ ul.font-awesome-h li a:hover i {
 ul.font-awesome-h li a:focus i, ul.font-awesome-h li a:active i {
     transition: none;
     color: #0b161c;
+}
+
+#bio {
+    width: 90%;
+    margin: auto;
+
+    color: cadetblue;
+}
+
+#bio p {
+    font-family: cursive, sans-serif;
+    font-size: 1.1em;
+    line-height: 1.2em;
 }
 
 #licence {
