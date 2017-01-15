@@ -20,8 +20,8 @@ for src_file in $src_files; do
     gen_fname="${src_fname%.md}.html"
     gen_file="posts/generated/$gen_fname"
 
-    pandoc --to=html5 --katex --standalone --template=template.html \
-        "$src_file" \
+    cat "$src_file" | kramdown \
+        --to=html5 --katex --standalone --template=template.html \
         --output="$gen_file"
 
     cat <<- EOF >> posts.tf
