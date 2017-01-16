@@ -1,5 +1,6 @@
 @import url("/common.css");
 @import url("//fonts.googleapis.com/css?family=Anonymous+Pro:400");
+@import url("//fonts.googleapis.com/css?family=Calligraffitti");
 @import url("//cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css");
 
 body {
@@ -110,9 +111,8 @@ ul.font-awesome-h li a:focus i, ul.font-awesome-h li a:active i {
 }
 
 #bio p {
-    font-family: cursive, sans-serif;
+    font-family: 'Calligraffitti', cursive, sans-serif;
     font-size: 1.1em;
-    line-height: 1.2em;
 }
 
 #licence {
