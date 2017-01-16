@@ -2,7 +2,10 @@
 <html lang="en_GB">
     <head>
         <meta charset="utf-8">
-        <title>$if(title-prefix)$$title-prefix$ – $endif$$pagetitle$</title>
+        <title>
+            $if(title-prefix)$$title-prefix$ – $endif$
+            $if(pagetitle)$$pagetitle$$else$OJFord's blog$endif$
+        </title>
 
         $if(quotes)$
         <style type="text/css">q { quotes: "“" "”" "‘" "’"; }</style>
@@ -73,6 +76,8 @@
         </div>
 
         <div id="content">
+
+            $if(body)$
             <div class="post">
                 $for(include-before)$
                 $include-before$
@@ -103,9 +108,10 @@ $body$
                 $include-after$
                 $endfor$
             </div>
+            $endif$
 
             <div id="index">
-                <iframe src="/index.html" frameborder="0" title="Index">
+                <iframe src="/listing.html" frameborder="0" title="Index">
                 </iframe>
             </div>
 

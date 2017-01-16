@@ -45,7 +45,9 @@ for src_file in $src_files; do
 done
 
 echo "]" >> vars.rb
-erb -r ./vars.rb index.html.erb > index.html
+erb -r ./vars.rb listing.html.erb > listing.html
+
+pandoc --template=template.html --to=html5 /dev/null --output=posts/generated/index.html
 
 # Output JSON (Terraform requirement)
 echo "{}"
