@@ -15,7 +15,7 @@
                     : document.location.href;
 
                 var post_fname = url.substr(url.indexOf("/post/"));
-                document.querySelectorAll("div.post").some(function(el){
+                document.querySelectorAll("div.post").forEach(function(el){
 
                     if (el.querySelector("div h1 a[href=\"" + post_fname + "\"]") !== null) {
                         el.style.display = "none";
